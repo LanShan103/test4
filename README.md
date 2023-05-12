@@ -25,5 +25,5 @@ class xxxNet(nn.Module):
         output = F.softmax(x)   # [bs, num_classes] 得到最终的预测结果
 
         return output
-        ```
+```
         
