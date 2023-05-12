@@ -9,7 +9,18 @@ class xxxNet(nn.Module):
   def  forward(x):
       return x
  ```
- 在 def  forward(x)中缺少了一个self参数，行该改为def  forward(self,x)。否则该代码将无法运行
+ 在 def  forward(x)中缺少了一个self参数，无法正确执行模型的训练
+ ## 更改后的代码
+ ```
+ import torch
+import torch.nn as nn 
+import torch.nn.functional as F
+class xxxNet(nn.Module):
+  def __init__(self):
+      pass
+  def  forward(self,x):
+      return x
+ ```
  # ResNet34 模型代码注释
  ```
      def forward(self, x):
