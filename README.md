@@ -15,8 +15,8 @@ class xxxNet(nn.Module):
      def forward(self, x):
         x = self.conv1(x)  # [bs, 64, 56, 56] 特征提取过程
         x = self.maxpooling(x)  # [bs, 64, 28, 28]池化，降低分辨率和计算量
-        x = self.layer1(x)      # [bs, 256, 28, 28] 增加分辨率
-        x = self.layer2(x)      # [bs, 512, 14, 14]同上
+        x = self.layer1(x)      # [bs, 256, 28, 28] 残差块，降低分辨率
+        x = self.layer2(x)      # [bs, 512, 14, 14] 同上
         x = self.layer3(x)      # [bs, 1024, 7, 7]
         x = self.layer4(x)      # [bs, 2048, 1, 1]
         x = self.avgpooling(x)  # [bs, 2048, 1, 1]平均池化，降低分辨率和计算量
