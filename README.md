@@ -19,7 +19,7 @@ class xxxNet(nn.Module):
         x = self.layer2(x)      # [bs, 128, 28, 28] 同上
         x = self.layer3(x)      # [bs, 256, 14, 14]
         x = self.layer4(x)      # [bs, 512, 7, 7]
-        x = self.avgpooling(x)  # [bs, 2048, 3, 3]进行平均池化，降低分辨率和计算量
+        x = self.avgpooling(x)  # [bs, 512, 3, 3]进行平均池化，降低分辨率和计算量
         x = x.view(x.shape[0], -1)   # [bs, 4608] 减少特征量，使维度降低，减小尺寸
         x = self.classifier(x)   # [bs, num_classes] 分类器，将其进行分类处理
         output = F.softmax(x)   # [bs, num_classes] 得到最终的预测结果
